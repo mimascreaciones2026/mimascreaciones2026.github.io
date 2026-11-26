@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mima's · Flores eternas</title>
+<meta name="description" content="Ramos y osos de flores eternas hechos a mano. Enviamos desde Bogotá a todo Colombia. Pide por WhatsApp.">
+<meta property="og:title" content="Mima's · Flores eternas">
+<meta property="og:description" content="Ramos y osos de flores eternas. Pide por WhatsApp, envíos a todo el país.">
+<meta property="og:image" content="R01-amor-infinito.jpg">
+<meta name="theme-color" content="#E58AA0">
+<link rel="icon" href="icono.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa:#E58AA0; --rosa-osc:#B9546F; --rosa-claro:#FDF1F3; --rosa-borde:#F4D3DB;
+    --verde:#7F9F5C; --texto:#4A3640; --suave:#8A7480; --blanco:#fff;
+    --sombra:0 4px 18px rgba(185,84,111,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Nunito',system-ui,sans-serif;color:var(--texto);background:var(--rosa-claro);line-height:1.45;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;color:var(--rosa-osc);line-height:1.1}
+
+  /* Encabezado */
+  header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--rosa-borde)}
+  .barra{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:8px 14px}
+  .barra img{width:46px;height:46px}
+  .barra .marca{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--rosa-osc)}
+  .barra .marca small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;font-weight:600;color:var(--suave);letter-spacing:.08em;text-transform:uppercase;margin-top:-2px}
+  .btn-carrito{margin-left:auto;position:relative;background:var(--rosa);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700;display:flex;align-items:center;gap:6px}
+  .btn-carrito .num{background:#fff;color:var(--rosa-osc);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.8rem;padding:0 6px}
+
+  /* Portada */
+  .portada{text-align:center;padding:26px 18px 14px;max-width:700px;margin:0 auto}
+  .portada img{width:130px;margin:0 auto 10px}
+  .portada h1{font-size:2.1rem}
+  .portada p{color:var(--suave);margin-top:6px}
+  .sellos{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
+  .sello{background:#fff;border:1px solid var(--rosa-borde);border-radius:999px;padding:6px 12px;font-size:.85rem;font-weight:600}
+
+  /* Buscador y categorías */
+  .herramientas{position:sticky;top:63px;z-index:10;background:var(--rosa-claro);padding:10px 14px 6px;max-width:1100px;margin:0 auto}
+  .buscar{width:100%;padding:12px 16px;border:1px solid var(--rosa-borde);border-radius:14px;font:inherit;font-size:16px;background:#fff;color:var(--texto)}
+  .buscar:focus{outline:2px solid var(--rosa);border-color:transparent}
+  .chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0 4px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{white-space:nowrap;background:#fff;border:1px solid var(--rosa-borde);border-radius:999px;padding:8px 14px;font-weight:600;font-size:.9rem}
+  .chip.activo{background:var(--rosa-osc);border-color:var(--rosa-osc);color:#fff}
+
+  /* Catálogo */
+  main{max-width:1100px;margin:0 auto;padding:4px 14px 40px;min-height:100vh}
+  .seccion h2{font-size:1.7rem;margin:22px 2px 10px}
+  .seccion .nota{color:var(--suave);font-size:.9rem;margin:-6px 2px 12px}
+  .grilla{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:700px){.grilla{grid-template-columns:repeat(3,1fr);gap:18px}}
+  @media(min-width:1000px){.grilla{grid-template-columns:repeat(4,1fr)}}
+  .tarjeta{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sombra);display:flex;flex-direction:column}
+  .tarjeta .foto{aspect-ratio:4/5;background:var(--rosa-borde);overflow:hidden}
+  .tarjeta .foto img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+  .tarjeta .foto:hover img{transform:scale(1.04)}
+  .tarjeta .info{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .tarjeta h3{font-size:1.25rem}
+  .tarjeta .desc{font-size:.82rem;color:var(--suave);flex:1}
+  .precio{font-weight:700;font-size:1.02rem}
+  .precio small{font-weight:600;color:var(--suave);font-size:.75rem}
+  .btn-agregar{margin-top:6px;background:var(--rosa);color:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:.92rem}
+  .btn-agregar.cotizar{background:#fff;color:var(--verde);border:1.5px solid var(--verde)}
+  .btn-agregar:active{transform:scale(.97)}
+  .vacio{text-align:center;color:var(--suave);padding:40px 10px}
+
+  .btn-ig{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 16px;border-radius:999px;color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF)}
+  .btn-ig svg{width:18px;height:18px;fill:#fff;flex:none}
+  .btn-ig b{font-weight:600;opacity:.9;font-size:.78rem}
+  .btn-ig.grande{display:flex;justify-content:center;margin:22px 0 4px;padding:14px;font-size:1rem;border-radius:14px}
+  @media(max-width:520px){.btn-ig b{display:none}}
+  /* Pie y políticas */
+  footer{background:#fff;border-top:1px solid var(--rosa-borde);padding:26px 16px 100px}
+  footer .contenido{max-width:800px;margin:0 auto}
+  footer h2{font-size:1.5rem;margin-bottom:10px}
+  details{border-bottom:1px solid var(--rosa-borde);padding:12px 0}
+  summary{font-weight:700;cursor:pointer}
+  details p,details li{font-size:.9rem;color:var(--texto);margin-top:8px}
+  details ul{padding-left:18px}
+  .contacto{margin-top:20px;font-size:.9rem;color:var(--suave);text-align:center}
+  .contacto a{color:var(--rosa-osc);font-weight:700}
+
+  /* Botón flotante WhatsApp */
+  .flotante{position:fixed;right:16px;bottom:16px;z-index:15;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+  .flotante svg{width:30px;height:30px;fill:#fff}
+
+  /* Carrito */
+  .fondo{position:fixed;inset:0;background:rgba(60,30,40,.45);z-index:30;opacity:0;pointer-events:none;transition:opacity .25s}
+  .fondo.abierto{opacity:1;pointer-events:auto}
+  .panel{position:fixed;top:0;right:0;height:100%;width:100%;max-width:440px;background:#fff;z-index:31;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+  .panel.abierto{transform:none}
+  .panel-cab{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--rosa-borde)}
+  .panel-cab h2{font-size:1.6rem}
+  .cerrar{font-size:1.8rem;line-height:1;padding:4px 10px;color:var(--suave)}
+  .panel-cuerpo{overflow-y:auto;padding:12px 16px;flex:1}
+  .item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--rosa-claro);align-items:center}
+  .item img{width:58px;height:58px;object-fit:cover;border-radius:10px}
+  .item .datos{flex:1;font-size:.9rem}
+  .item .datos b{display:block}
+  .item .datos span{color:var(--suave);font-size:.8rem}
+  .cantidad{display:flex;align-items:center;gap:6px}
+  .cantidad button{width:30px;height:30px;border-radius:8px;background:var(--rosa-claro);font-weight:700;font-size:1.1rem;color:var(--rosa-osc)}
+  .totales{background:var(--rosa-claro);border-radius:12px;padding:12px;margin:14px 0;font-size:.9rem}
+  .totales .fila{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 10px;margin:3px 0}
+  .totales .total{font-weight:700;font-size:1.05rem;border-top:1px solid var(--rosa-borde);padding-top:6px;margin-top:6px}
+  .totales .aviso{color:var(--suave);font-size:.78rem;margin-top:6px}
+  form label{display:block;font-size:.85rem;font-weight:700;margin:10px 0 4px}
+  form input,form textarea{width:100%;padding:11px 12px;border:1px solid var(--rosa-borde);border-radius:10px;font:inherit;font-size:16px;color:var(--texto)}
+  form textarea{min-height:64px;resize:vertical}
+  .acepto{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;margin-top:12px}
+  .acepto input{width:auto;margin-top:3px}
+  .acepto a{color:var(--rosa-osc)}
+  .pago{font-size:.85rem;margin-top:12px;background:#F3F8EE;border:1px solid #DCE8CF;border-radius:10px;padding:10px}
+  .panel-pie{padding:12px 16px;border-top:1px solid var(--rosa-borde)}
+  .btn-whatsapp{width:100%;background:#25D366;color:#fff;border-radius:12px;padding:14px;font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;gap:8px}
+  .btn-whatsapp{text-decoration:none}.btn-whatsapp.apagado{background:#bbb;pointer-events:none}
+  .error{color:#C0392B;font-size:.82rem;margin-top:8px;text-align:center;min-height:1em}
+
+  /* Aviso emergente */
+  .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(20px);background:var(--texto);color:#fff;padding:10px 18px;border-radius:999px;font-size:.9rem;opacity:0;transition:.25s;z-index:40;pointer-events:none;white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis}
+  .toast.ver{opacity:1;transform:translateX(-50%)}
+
+  /* Foto ampliada */
+  .visor{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+  .visor.abierto{display:flex}
+  .visor img{max-height:90vh;border-radius:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="barra">
+    <img src="logo.png" alt="Logo Mima's">
+    <div class="marca">Mima's<small>Flores eternas</small></div>
+    <button class="btn-carrito" id="abrirCarrito" aria-label="Ver carrito">🛍️ Pedido <span class="num" id="contador">0</span></button>
+  </div>
+</header>
+
+<section class="portada">
+  <img src="logo.png" alt="">
+  <h1>Flores eternas hechas a mano</h1>
+  <p id="eslogan"></p>
+  <div class="sellos">
+    <span class="sello">🚚 Envíos a todo Colombia</span>
+    <span class="sello">💜 Pago por Nequi</span>
+    <span class="sello">💬 Pide por WhatsApp</span>
+  </div>
+  <a class="btn-ig" id="igPortada" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 100 12.4 6.2 6.2 0 000-12.4zM12 16a4 4 0 110-8 4 4 0 010 8zm6.4-11.8a1.4 1.4 0 100 2.9 1.4 1.4 0 000-2.9z"/></svg> Síguenos en Instagram <b>@mimas_flores_eternas</b></a>
+</section>
+
+<div class="herramientas">
+  <input class="buscar" id="buscar" type="search" placeholder="🔍 Busca: rosas, oso, girasoles...">
+  <div class="chips" id="chips"></div>
+</div>
+
+<main id="catalogo"></main>
+
+<footer>
+  <div class="contenido">
+    <h2>Información importante</h2>
+
+    <details id="envios">
+      <summary>🚚 Política de envíos</summary>
+      <p>Despachamos desde Bogotá a todo Colombia. El costo del envío <b>se cotiza según la ciudad</b> y te lo confirmamos por WhatsApp antes de que pagues.</p>
+      <p>Nuestros productos se elaboran a mano. El tiempo de elaboración y la fecha de entrega se acuerdan contigo al confirmar el pedido.</p>
+      <p>Es responsabilidad del cliente entregar datos de entrega completos y correctos.</p>
+    </details>
+
+    <details id="cambios">
+      <summary>🔄 Cambios y devoluciones</summary>
+      <p>Cada producto se hace a mano y según lo que pides (colores, adicionales, dedicatoria). Por eso, de acuerdo con el artículo 47 de la Ley 1480 de 2011 (Estatuto del Consumidor), <b>no aplica el derecho de retracto</b> para bienes personalizados o hechos según las indicaciones del cliente.</p>
+      <p>Si tu pedido llega dañado o diferente a lo acordado, escríbenos por WhatsApp con fotos dentro de los <b>2 días hábiles</b> siguientes a la entrega. Revisamos tu caso y, según corresponda, reparamos, cambiamos el producto o devolvemos tu dinero, conforme a la garantía legal.</p>
+    </details>
+
+    <details id="pagos">
+      <summary>💜 Pagos</summary>
+      <p>Recibimos pagos por <b>Nequi</b> al <b id="nequiTexto"></b>. Primero confirmamos contigo por WhatsApp el valor final (diseño y envío) y luego realizas el pago. Envía el comprobante por el mismo chat.</p>
+    </details>
+
+    <details id="datos">
+      <summary>🔒 Tratamiento de datos personales (Ley 1581 de 2012)</summary>
+      <p><b>Responsable:</b> Mima's · WhatsApp <span id="wpTexto"></span>.</p>
+      <p><b>Qué datos pedimos:</b> nombre, ciudad, dirección de entrega, número de WhatsApp y los detalles de tu pedido.</p>
+      <p><b>Para qué los usamos:</b> únicamente para gestionar, confirmar, despachar y hacer seguimiento a tu pedido. No los vendemos ni los compartimos, salvo con la transportadora para la entrega.</p>
+      <p><b>Cómo los recibimos:</b> esta página no guarda tus datos; se envían directamente a nuestro WhatsApp cuando tú decides enviar el pedido.</p>
+      <p><b>Tus derechos:</b> puedes conocer, actualizar, rectificar y pedir que eliminemos tus datos, o revocar esta autorización, escribiéndonos por WhatsApp. Aplicamos la Ley 1581 de 2012 y el Decreto 1377 de 2013.</p>
+    </details>
+
+    <a class="btn-ig grande" id="igPie" target="_blank" rel="noopener">📸 Mira más diseños en Instagram</a>
+    <p class="contacto">
+      WhatsApp <a id="wpLink" target="_blank" rel="noopener"></a> ·
+      <a id="igLink" target="_blank" rel="noopener">Instagram</a><br>
+      © <span id="anio"></span> Mima's · Hecho con amor en Bogotá
+    </p>
+  </div>
+</footer>
+
+<a class="flotante" id="flotante" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2l-1 1.3c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6l-1.1-2.6c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 2.9 1.1 3.5.9 4.1.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.4-.3-.7-.4z"/></svg>
+</a>
+
+<!-- Carrito -->
+<div class="fondo" id="fondo"></div>
+<aside class="panel" id="panel" aria-label="Tu pedido">
+  <div class="panel-cab">
+    <h2>Tu pedido</h2>
+    <button class="cerrar" id="cerrarCarrito" aria-label="Cerrar">×</button>
+  </div>
+  <div class="panel-cuerpo">
+    <div id="items"></div>
+    <div id="zonaForm">
+      <div class="totales" id="totales"></div>
+      <form id="form" onsubmit="return false">
+        <label for="nombre">Tu nombre *</label>
+        <input id="nombre" autocomplete="name" required>
+        <label for="ciudad">Ciudad de entrega *</label>
+        <input id="ciudad" autocomplete="address-level2" required>
+        <label for="direccion">Dirección y barrio</label>
+        <input id="direccion" autocomplete="street-address">
+        <label for="fecha">¿Para cuándo lo necesitas?</label>
+        <input id="fecha" placeholder="Ej: sábado 12 de diciembre">
+        <label for="notas">Dedicatoria o detalles (colores, adicionales)</label>
+        <textarea id="notas"></textarea>
+        <div class="acepto">
+          <input type="checkbox" id="acepto">
+          <label for="acepto" style="margin:0;font-weight:400">Autorizo el tratamiento de mis datos para gestionar mi pedido, según la <a href="#datos" id="verPolitica">política de datos</a> (Ley 1581 de 2012). *</label>
+        </div>
+        <div class="pago">💜 <b>Pago por Nequi</b> después de confirmar el valor final por WhatsApp.</div>
+      </form>
+    </div>
+  </div>
+  <div class="panel-pie">
+    <a class="btn-whatsapp" id="enviar" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    <p class="error" id="error"></p>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+<div class="visor" id="visor"><img id="visorImg" alt=""></div>
+
+<script src="productos.js"></script>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const pesos = n => '$' + Number(n).toLocaleString('es-CO');
+  const quitarTildes = t => t.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+  const variable = p => p.precioHasta && p.precioHasta > p.precio;
+  const textoPrecio = p => p.precio === 0 ? 'Precio a cotizar'
+      : variable(p) ? pesos(p.precio) + ' – ' + pesos(p.precioHasta) : pesos(p.precio);
+
+  // Datos del negocio en la página
+  $('eslogan').textContent = NEGOCIO.eslogan;
+  $('nequiTexto').textContent = NEGOCIO.nequi;
+  $('wpTexto').textContent = NEGOCIO.whatsappVisible;
+  $('wpLink').textContent = NEGOCIO.whatsappVisible;
+  $('wpLink').href = 'https://wa.me/' + NEGOCIO.whatsapp;
+  $('igLink').href = NEGOCIO.instagram; $('igPortada').href = NEGOCIO.instagram; $('igPie').href = NEGOCIO.instagram;
+  $('flotante').href = 'https://wa.me/' + NEGOCIO.whatsapp + '?text=' + encodeURIComponent('Hola Mima\'s 🌸, quiero información sobre sus flores eternas.');
+  $('anio').textContent = new Date().getFullYear();
+
+  // Carrito (se recuerda en este celular)
+  let carrito = {};
+  try { carrito = JSON.parse(localStorage.getItem('mimas_carrito')) || {}; } catch(e) {}
+  const porCodigo = {}; PRODUCTOS.forEach(p => porCodigo[p.codigo] = p);
+  Object.keys(carrito).forEach(c => { if (!porCodigo[c]) delete carrito[c]; });
+  const guardar = () => { try { localStorage.setItem('mimas_carrito', JSON.stringify(carrito)); } catch(e) {} };
+
+  // Categorías
+  let categoria = 'Todos', busqueda = '';
+  const cats = ['Todos', ...CATEGORIAS.filter(c => PRODUCTOS.some(p => p.categoria === c))];
+  PRODUCTOS.forEach(p => { if (!cats.includes(p.categoria)) cats.push(p.categoria); });
+  $('chips').innerHTML = cats.map(c => `<button class="chip${c==='Todos'?' activo':''}" data-cat="${c}">${c}</button>`).join('');
+  $('chips').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    categoria = b.dataset.cat;
+    document.querySelectorAll('.chip').forEach(x => x.classList.toggle('activo', x === b));
+    pintarCatalogo(); subir();
+  });
+  $('buscar').addEventListener('input', e => { busqueda = quitarTildes(e.target.value.trim()); pintarCatalogo(); subir(); });
+  function subir(){ const m = $('catalogo'), h = document.querySelector('header').offsetHeight + document.querySelector('.herramientas').offsetHeight; const y = m.getBoundingClientRect().top + window.scrollY - h; if (window.scrollY > y) window.scrollTo(0, y); }
+
+  function tarjeta(p){
+    const cot = p.precio === 0;
+    return `<article class="tarjeta">
+      <div class="foto"><img src="${p.foto}" alt="${p.nombre}" loading="lazy" data-ver="${p.foto}"></div>
+      <div class="info">
+        <h3>${p.nombre}</h3>
+        <p class="desc">${p.descripcion}</p>
+        <div class="precio">${variable(p) ? '<small>Desde </small>' + pesos(p.precio) : textoPrecio(p)}</div>
+        <button class="btn-agregar${cot?' cotizar':''}" data-add="${p.codigo}">${cot ? '💬 Cotizar' : '+ Agregar'}</button>
+      </div></article>`;
+  }
+
+  function pintarCatalogo(){
+    const lista = PRODUCTOS.filter(p =>
+      (categoria === 'Todos' || p.categoria === categoria) &&
+      (!busqueda || quitarTildes(p.nombre + ' ' + p.descripcion + ' ' + p.categoria).includes(busqueda)));
+    if (!lista.length) { $('catalogo').innerHTML = '<p class="vacio">No encontramos ese producto. Escríbenos por WhatsApp y te ayudamos 🌸</p>'; return; }
+    const grupos = cats.filter(c => c !== 'Todos').map(c => [c, lista.filter(p => p.categoria === c)]).filter(g => g[1].length);
+    $('catalogo').innerHTML = grupos.map(([c, ps]) => `<section class="seccion"><h2>${c}</h2>
+      ${c === 'Adicionales' ? '<p class="nota">Añade y decora tu ramo ✨</p>' : ''}
+      <div class="grilla">${ps.map(tarjeta).join('')}</div></section>`).join('');
+  }
+
+  $('catalogo').addEventListener('click', e => {
+    const add = e.target.closest('[data-add]');
+    if (add) { carrito[add.dataset.add] = (carrito[add.dataset.add] || 0) + 1; guardar(); pintarCarrito();
+      aviso('Agregado: ' + porCodigo[add.dataset.add].nombre); return; }
+    const img = e.target.closest('[data-ver]');
+    if (img) { $('visorImg').src = img.dataset.ver; $('visorImg').alt = img.alt; $('visor').classList.add('abierto'); }
+  });
+  $('visor').addEventListener('click', () => $('visor').classList.remove('abierto'));
+
+  function calcular(){
+    let desde = 0, hasta = 0, hayVariable = false, hayCotizar = false, unidades = 0;
+    for (const [c, n] of Object.entries(carrito)) {
+      const p = porCodigo[c]; unidades += n;
+      if (p.precio === 0) hayCotizar = true;
+      desde += p.precio * n;
+      hasta += (variable(p) ? p.precioHasta : p.precio) * n;
+      if (variable(p)) hayVariable = true;
+    }
+    return {desde, hasta, hayVariable, hayCotizar, unidades};
+  }
+
+  function pintarCarrito(){
+    const t = calcular();
+    $('contador').textContent = t.unidades;
+    const cods = Object.keys(carrito);
+    if (!cods.length) {
+      $('items').innerHTML = '<p class="vacio">Tu pedido está vacío.<br>Agrega tus flores favoritas 🌷</p>';
+      $('zonaForm').style.display = 'none'; $('enviar').classList.add('apagado'); return;
+    }
+    $('zonaForm').style.display = ''; $('enviar').classList.remove('apagado'); armarEnlace();
+    $('items').innerHTML = cods.map(c => { const p = porCodigo[c]; return `
+      <div class="item"><img src="${p.foto}" alt="">
+        <div class="datos"><b>${p.nombre}</b><span>${textoPrecio(p)}</span></div>
+        <div class="cantidad"><button data-menos="${c}" aria-label="Quitar uno">−</button><b>${carrito[c]}</b><button data-mas="${c}" aria-label="Agregar uno">+</button></div>
+      </div>`; }).join('');
+    const sub = t.hayVariable ? pesos(t.desde) + ' – ' + pesos(t.hasta) : pesos(t.desde);
+    $('totales').innerHTML = `
+      <div class="fila"><span>Productos${t.hayCotizar ? ' (sin los de cotizar)' : ''}</span><b>${sub}</b></div>
+      <div class="fila"><span>Envío</span><span>Se cotiza según ciudad</span></div>
+      <p class="aviso">${t.hayVariable || t.hayCotizar ? 'El valor final depende del diseño, las rosas y los adicionales. ' : ''}Te confirmamos el total exacto por WhatsApp antes de pagar.</p>`;
+  }
+
+  $('items').addEventListener('click', e => {
+    const mas = e.target.closest('[data-mas]'), menos = e.target.closest('[data-menos]');
+    if (mas) carrito[mas.dataset.mas]++;
+    if (menos) { const c = menos.dataset.menos; carrito[c]--; if (carrito[c] <= 0) delete carrito[c]; }
+    if (mas || menos) { guardar(); pintarCarrito(); }
+  });
+
+  const abrir = () => { $('panel').classList.add('abierto'); $('fondo').classList.add('abierto'); $('error').textContent=''; };
+  const cerrar = () => { $('panel').classList.remove('abierto'); $('fondo').classList.remove('abierto'); };
+  $('abrirCarrito').onclick = abrir; $('cerrarCarrito').onclick = cerrar; $('fondo').onclick = cerrar;
+  $('verPolitica').onclick = () => { cerrar(); $('datos').open = true; };
+
+  function mensaje(){
+    const nombre = $('nombre').value.trim(), ciudad = $('ciudad').value.trim();
+    const t = calcular();
+    const lineas = Object.entries(carrito).map(([c, n]) => { const p = porCodigo[c];
+      return `• ${n} x ${p.nombre} (${p.codigo}) – ${p.precio === 0 ? 'a cotizar' : variable(p) ? 'desde ' + pesos(p.precio) + ' c/u' : pesos(p.precio * n)}`; });
+    const sub = t.hayVariable ? pesos(t.desde) + ' a ' + pesos(t.hasta) : pesos(t.desde);
+    let m = `Hola Mima's 🌸, quiero hacer este pedido:\n\n${lineas.join('\n')}\n\n`;
+    m += `Subtotal estimado: ${sub}${t.hayCotizar ? ' + productos a cotizar' : ''}\nEnvío: por cotizar según ciudad\n`;
+    if (t.hayVariable || t.hayCotizar) m += `(Precio final por confirmar según diseño)\n`;
+    m += `\n👤 Nombre: ${nombre}\n📍 Ciudad: ${ciudad}\n`;
+    if ($('direccion').value.trim()) m += `🏠 Dirección: ${$('direccion').value.trim()}\n`;
+    if ($('fecha').value.trim()) m += `📅 Para: ${$('fecha').value.trim()}\n`;
+    if ($('notas').value.trim()) m += `💌 Detalles: ${$('notas').value.trim()}\n`;
+    m += `\nPagaré por Nequi cuando me confirmen el valor final. Autorizo el tratamiento de mis datos para gestionar este pedido.`;
+    return m;
+  }
+  function armarEnlace(){ $('enviar').href = 'https://wa.me/' + NEGOCIO.whatsapp + '?text=' + encodeURIComponent(mensaje()); }
+  $('form').addEventListener('input', () => { armarEnlace(); $('error').textContent = ''; });
+  $('form').addEventListener('change', armarEnlace);
+  $('enviar').addEventListener('click', e => {
+    armarEnlace();
+    if (!$('nombre').value.trim() || !$('ciudad').value.trim()) { e.preventDefault(); $('error').textContent = 'Escribe tu nombre y la ciudad de entrega.'; return; }
+    if (!$('acepto').checked) { e.preventDefault(); $('error').textContent = 'Debes autorizar el tratamiento de datos para continuar.'; return; }
+  });
+
+  let tt; function aviso(txt){ $('toast').textContent = txt; $('toast').classList.add('ver'); clearTimeout(tt); tt = setTimeout(() => $('toast').classList.remove('ver'), 1600); }
+
+  pintarCatalogo(); pintarCarrito();
+})();
+</script>
+</body>
+</html>
