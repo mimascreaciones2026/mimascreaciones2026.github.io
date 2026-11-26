@@ -32,7 +32,7 @@ const PRODUCTOS = [
     precio: 208000,
     precioHasta: 334000,
     descripcion: "De 50 a 80 rosas rojas con mariposas y cinta Love.",
-    foto: "fotos/R01-amor-infinito.jpg"
+    foto: "R01-amor-infinito.jpg"
   },
   {
     codigo: "M01",
@@ -41,7 +41,7 @@ const PRODUCTOS = [
     precio: 63000,
     precioHasta: 0,
     descripcion: "15 rosas rosadas con moño.",
-    foto: "fotos/M01-dulce-rosa.jpg"
+    foto: "M01-dulce-rosa.jpg"
   },
   {
     codigo: "M02",
@@ -50,7 +50,7 @@ const PRODUCTOS = [
     precio: 63000,
     precioHasta: 0,
     descripcion: "Rosas plateadas y rosadas con peluche.",
-    foto: "fotos/M02-luna-de-plata.jpg"
+    foto: "M02-luna-de-plata.jpg"
   },
   {
     codigo: "M03",
@@ -59,7 +59,7 @@ const PRODUCTOS = [
     precio: 105000,
     precioHasta: 0,
     descripcion: "25 rosas en forma de corazón.",
-    foto: "fotos/M03-corazon-eterno.jpg"
+    foto: "M03-corazon-eterno.jpg"
   },
   {
     codigo: "M04",
@@ -68,7 +68,7 @@ const PRODUCTOS = [
     precio: 105000,
     precioHasta: 0,
     descripcion: "Rosas rojas con corona y mariposas.",
-    foto: "fotos/M04-reina-roja.jpg"
+    foto: "M04-reina-roja.jpg"
   },
   {
     codigo: "M05",
@@ -77,7 +77,7 @@ const PRODUCTOS = [
     precio: 52000,
     precioHasta: 0,
     descripcion: "Tulipanes y lirio rojo con margaritas.",
-    foto: "fotos/M05-jardin-carmesi.jpg"
+    foto: "M05-jardin-carmesi.jpg"
   },
   {
     codigo: "M06",
@@ -86,7 +86,7 @@ const PRODUCTOS = [
     precio: 56000,
     precioHasta: 0,
     descripcion: "Flores rosadas en papel blanco.",
-    foto: "fotos/M06-primavera-rosa.jpg"
+    foto: "M06-primavera-rosa.jpg"
   },
   {
     codigo: "M07",
@@ -95,7 +95,7 @@ const PRODUCTOS = [
     precio: 67000,
     precioHasta: 0,
     descripcion: "Girasoles con luces.",
-    foto: "fotos/M07-sol-radiante.jpg"
+    foto: "M07-sol-radiante.jpg"
   },
   {
     codigo: "M08",
@@ -104,7 +104,7 @@ const PRODUCTOS = [
     precio: 68000,
     precioHasta: 0,
     descripcion: "Tulipanes rosados con lazo.",
-    foto: "fotos/M08-tulipan-rose.jpg"
+    foto: "M08-tulipan-rose.jpg"
   },
   {
     codigo: "M09",
@@ -113,7 +113,7 @@ const PRODUCTOS = [
     precio: 90000,
     precioHasta: 0,
     descripcion: "20 rosas rosadas y blancas con corona y cinta Happy Birthday.",
-    foto: "fotos/M09-feliz-cumple.jpg"
+    foto: "M09-feliz-cumple.jpg"
   },
   {
     codigo: "P01",
@@ -122,7 +122,7 @@ const PRODUCTOS = [
     precio: 26000,
     precioHasta: 34000,
     descripcion: "De 6 a 8 rosas con gypsophila y mariposa.",
-    foto: "fotos/P01-mariposa-rosa.jpg"
+    foto: "P01-mariposa-rosa.jpg"
   },
   {
     codigo: "P02",
@@ -131,7 +131,7 @@ const PRODUCTOS = [
     precio: 52000,
     precioHasta: 66000,
     descripcion: "De 6 a 8 lirios en blanco y negro.",
-    foto: "fotos/P02-noche-elegante.jpg"
+    foto: "P02-noche-elegante.jpg"
   },
   {
     codigo: "P03",
@@ -140,7 +140,7 @@ const PRODUCTOS = [
     precio: 30000,
     precioHasta: 0,
     descripcion: "7 rosas rojas con perlas y mariposa dorada.",
-    foto: "fotos/P03-pasion-dorada.jpg"
+    foto: "P03-pasion-dorada.jpg"
   },
   {
     codigo: "O01",
@@ -149,7 +149,7 @@ const PRODUCTOS = [
     precio: 58000,
     precioHasta: 0,
     descripcion: "Oso pequeño de rosas rosadas.",
-    foto: "fotos/O01-osito-rosa.jpg"
+    foto: "O01-osito-rosa.jpg"
   },
   {
     codigo: "O02",
@@ -158,7 +158,7 @@ const PRODUCTOS = [
     precio: 75000,
     precioHasta: 0,
     descripcion: "Oso grande de rosas blancas.",
-    foto: "fotos/O02-oso-nube.jpg"
+    foto: "O02-oso-nube.jpg"
   },
   {
     codigo: "A01",
@@ -167,7 +167,7 @@ const PRODUCTOS = [
     precio: 7000,
     precioHasta: 0,
     descripcion: "Añádela para decorar tu ramo.",
-    foto: "fotos/A01-corona.jpg"
+    foto: "A01-corona.jpg"
   },
   {
     codigo: "A02",
@@ -176,7 +176,7 @@ const PRODUCTOS = [
     precio: 5000,
     precioHasta: 0,
     descripcion: "Añádela para decorar tu ramo.",
-    foto: "fotos/A02-mariposa.jpg"
+    foto: "A02-mariposa.jpg"
   },
   {
     codigo: "A03",
@@ -185,7 +185,7 @@ const PRODUCTOS = [
     precio: 0,
     precioHasta: 0,
     descripcion: "El precio varía según el peluche que prefieras.",
-    foto: "fotos/A03-peluche.jpg"
+    foto: "A03-peluche.jpg"
   },
   {
     codigo: "A04",
@@ -194,6 +194,6 @@ const PRODUCTOS = [
     precio: 0,
     precioHasta: 0,
     descripcion: "El precio varía según lo que desees.",
-    foto: "fotos/A04-dulces-chocolates.jpg"
+    foto: "A04-dulces-chocolates.jpg"
   },
 ];
